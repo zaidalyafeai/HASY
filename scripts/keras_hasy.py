@@ -69,13 +69,8 @@ model.fit(x_train, y_train, batch_size=batch_size, epochs=nb_epoch,
           verbose=1, validation_data=(x_test, y_test))
 
 # Serialize model
-model.save('my_keras_model.h5')
+model.save('keras.h5')
 
 # Evaluate model
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test accuarcy: {:0.2f}%'.format(score[1] * 100))
-
-# Run the model on one example
-prediction = model.predict(x_test[0].reshape(-1, 1, img_rows, img_cols))
-# only show first 3 probabilities
-print("Prediction: {}".format(str(prediction[0][:3])))
