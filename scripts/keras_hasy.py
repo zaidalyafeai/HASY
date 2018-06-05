@@ -23,7 +23,7 @@ from keras import backend as K
 import hasy_tools as ht
 
 batch_size = 128
-nb_epoch = 1
+nb_epoch = 3
 
 # input image dimensions
 img_rows, img_cols = ht.img_rows, ht.img_cols
@@ -49,10 +49,8 @@ x_test = ht.preprocess(x_test)
 model = Sequential()
 model.add(Convolution2D(32, (3, 3),
                         padding='same',
-                        input_shape=x_train.shape[1:]))
-model.add(PReLU())
-model.add(Convolution2D(64, (3, 3), padding='same'))
-model.add(PReLU())
+                        input_shape=x_train.shape[1:]), activation='relu' )
+model.add(Convolution2D(64, (3, 3), padding='same', activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
 
