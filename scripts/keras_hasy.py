@@ -76,7 +76,7 @@ model.save('keras.h5')
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test accuarcy: {:0.2f}%'.format(score[1] * 100))
 
-img =ht.preprocess(cv2.imread('.datasets/HASYv2/HASYv2/hasy-data/v2-00000.png')) 
+img =ht.preprocess(cv2.imread('.datasets/HASYv2/HASYv2/hasy-data/v2-00022.png')) 
 prediction = model.predict(img.reshape(-1, img_rows, img_cols, 1)) 
 # only show first 3 probabilities
 print("Prediction: {}".format(str(prediction[0]))) 
