@@ -9,6 +9,7 @@ Gets to 77.77% test accuracy after 1 epoch.
 
 from __future__ import print_function
 import numpy as np
+import cv2
 np.random.seed(0)  # make sure results are reproducible
 
 import tensorflow as tf
@@ -75,6 +76,7 @@ model.save('keras.h5')
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test accuarcy: {:0.2f}%'.format(score[1] * 100))
 
-prediction = model.predict(x_test[0].reshape(-1, img_rows, img_cols, 1)) 
+img = cv2.imread('.datasets/HASYv2/HASYv2/hasy-data/v2-00000.png')
+prediction = model.predict(img.reshape(-1, img_rows, img_cols, 1)) 
 # only show first 3 probabilities
 print("Prediction: {}".format(str(prediction[0].argmax()))) 
