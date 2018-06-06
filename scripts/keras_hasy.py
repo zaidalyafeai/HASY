@@ -77,4 +77,4 @@ print('Test accuarcy: {:0.2f}%'.format(score[1] * 100))
 
 prediction = model.predict(x_test[0].reshape(-1, img_rows, img_cols, 1)) 
 # only show first 3 probabilities
-print("Prediction: {}".format(str(prediction[0][:3])))
+print("Prediction: {}".format(str(prediction[0].argmax()))
