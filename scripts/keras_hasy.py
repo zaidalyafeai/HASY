@@ -24,7 +24,7 @@ from keras import backend as K
 import hasy_tools as ht
 
 batch_size = 128
-nb_epoch = 1
+nb_epoch = 5
 
 # input image dimensions
 img_rows, img_cols = ht.img_rows, ht.img_cols
